@@ -14,14 +14,16 @@ import java.awt.Graphics;
 public class Muur extends SpelElement
 {
     private SpelElement[][] elementen;
+    private int x;
+    private int y;
     
     public Muur(int x, int y)
     {
-        elementen = super.getElementen();
-        addMuur(x,y);       
+        this.x = x;
+        this.y = y;
     }
     
-    public void maakMuur(int x, int y, Graphics g)
+    public void maakVakje(int x, int y, Graphics g)
     {
         g.setColor(Color.black);
         g.fillRect(x, y, 25, 25);

@@ -4,8 +4,6 @@
  */
 package doolhof;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
@@ -21,7 +19,5 @@ public class Doolhof
     {
         HomeFrame homeframe = new HomeFrame();
         homeframe.setVisible(true);
-        JPanel panel = homeframe.getPanel();
-        panel.requestFocusInWindow();     
     }
 }

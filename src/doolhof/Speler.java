@@ -15,39 +15,61 @@ import java.awt.Graphics;
 public class Speler extends SpelElement
 {
     private SpelElement[][] elementen;
+    private int x;
+    private int y;
     
     public Speler(int x, int y)
     {
-        elementen = super.getElementen();
-        addSpeler(x,y);
-        
+        this.x = x;
+        this.y = y;
     }
-    
-    public void maakSpeler(int x, int y, Graphics g)
+
+    public void maakVakje(int x, int y, Graphics g)
     {
         g.setColor(Color.green);
         g.fillRect(x, y, 25, 25);
     }
     
-    private void addSpeler(int x, int y)
+    public void addSpeler(Speler s)
     {
-        elementen[x][y] = this;
+        elementen[x][y] = s;      
     }
     
     public void bewegen(int i)
     {
-        if(i ==1){
-            
+        if(i == 1){
+            try{
+            elementen[x][y+1] = elementen[x][y];
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
         }
-        if(i ==2){
-            
+        if(i == 2){
+            elementen[x+1][y] = elementen[x][y];
         }
-        if(i ==3){
-            
+        if(i == 3){
+            elementen[x][y+1] = elementen[x][y];
         }
-        if(i ==4){
-            
+        if(i == 4){
+            elementen[x-1][y] = elementen[x][y];
         }
     }
     
+    public int getX()
+    {
+        return x;
+    }
+    
+    public int getY()
+    {
+        return y;
+    }
+    
+    public void setCord(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 }
