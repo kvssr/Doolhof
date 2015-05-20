@@ -22,16 +22,17 @@ public class HomeFrame extends JFrame
     private static final int FRAME_WIDTH = 500;
     private static final int FRAME_HEIGHT = 500;
     private ChartComponent com;
+    private Level2 com2;
     
     public HomeFrame()
     {   
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-        createComponents();
+        createStart();
         this.setLocationRelativeTo(null);
     }
     
-    private void createComponents()
+    private void createStart()
     {
         button = new JButton("Start!");
 
@@ -51,9 +52,30 @@ public class HomeFrame extends JFrame
         panel.addKeyListener(klistener);
         
         this.add(panel);
-        
     }
     
+    private void createSecond()
+    {
+        button = new JButton("Start!");
+
+        button.setSize(100, 50);
+        
+        com2 = new Level2();
+        com.setPreferredSize(new Dimension(400, 400));
+          
+        ActionListener listener = new ClickListener();
+        button.addActionListener(listener);
+        
+        panel = new JPanel();
+        panel.add(button);
+        panel.add(com);
+        
+        KeyListener klistener = new MyKeyListener();
+        panel.addKeyListener(klistener);
+        
+        this.add(panel);
+        
+    }
     class ClickListener implements ActionListener
     {
         @Override
