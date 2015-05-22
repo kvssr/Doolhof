@@ -13,10 +13,10 @@ import java.awt.Graphics;
  * @author Kevin
  */
 abstract public class SpelElement
-{
+{ 
     public void maakVakje(int x, int y, Graphics g)
     {
         g.setColor(Color.white);
         g.fillRect(x, y, 25, 25);
-    }          
+    }             
 }

@@ -13,7 +13,6 @@ import java.awt.Graphics;
  */
 public class Muur extends SpelElement
 {
-    private SpelElement[][] elementen;
     private int x;
     private int y;
     
@@ -23,15 +22,10 @@ public class Muur extends SpelElement
         this.y = y;
     }
     
+    @Override
     public void maakVakje(int x, int y, Graphics g)
     {
         g.setColor(Color.black);
         g.fillRect(x, y, 25, 25);
-    }
-    
-    private void addMuur(int x, int y)
-    {
-        elementen[x][y] = this;
-    }
-    
+    }   
 }

@@ -4,6 +4,7 @@
  */
 package doolhof;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,9 +20,9 @@ public class HomeFrame extends JFrame
 {
     private JButton button;
     private JPanel panel;
-    private static final int FRAME_WIDTH = 500;
-    private static final int FRAME_HEIGHT = 500;
-    private ChartComponent com;
+    private static final int FRAME_WIDTH = 300;
+    private static final int FRAME_HEIGHT = 400;
+    private Level Level;
     
     
     public HomeFrame()
@@ -32,22 +33,25 @@ public class HomeFrame extends JFrame
         this.setLocationRelativeTo(null);
     }
     
+    /**
+     * createComponents - Maakt het paneel en de knoppen.
+     */
     private void createComponents()
     {
         button = new JButton("Start!");
-
-        button.setSize(100, 50);
         
-        com = new ChartComponent();
-        com.setPreferredSize(new Dimension(400, 400));
+        Level = new Level();
+        Level.setPreferredSize(new Dimension(300, 300));
         
         ActionListener listener = new ClickListener();
         button.addActionListener(listener);
+        button.setPreferredSize(new Dimension(100, 50));
         
         panel = new JPanel();
-        panel.add(button);
-        panel.add(com);
-        com.init();
+        panel.setLayout(new BorderLayout(100,100));
+        panel.add(button, BorderLayout.SOUTH);
+        panel.add(Level, BorderLayout.NORTH);
+        Level.init();
         
         KeyListener klistener = new MyKeyListener();
         panel.addKeyListener(klistener);
@@ -62,8 +66,10 @@ public class HomeFrame extends JFrame
         public void actionPerformed(ActionEvent event)
         {
             System.out.println("Click!");
+            button.setText("Reset");
             panel.requestFocusInWindow();
-            com.repaint();
+            Level.init();
+            Level.repaint();
         }
     } 
     
@@ -73,39 +79,28 @@ public class HomeFrame extends JFrame
         public void keyTyped(KeyEvent e) {
             System.out.println("Key typed: " + e.getKeyChar());
             if(e.getKeyChar() == 'w'){              
-                try
-                {
-                    com.bewegen(1);
-                    com.repaint();
-                }
-                catch(Exception f)
-                {
-                    System.out.println(f);
-                }
-                //s.bewegen(1);
+                Level.bewegen(1);
+                Level.repaint();
             }
             else if(e.getKeyChar() == 'a') {
-                com.bewegen(4);
-                com.repaint();
+                Level.bewegen(4);
+                Level.repaint();
             }
             else if(e.getKeyChar() == 's') {
-                com.bewegen(3);
-                com.repaint();
+                Level.bewegen(3);
+                Level.repaint();
             }
             else if(e.getKeyChar() == 'd') {
-                com.bewegen(2);
-                com.repaint();
+                Level.bewegen(2);
+                Level.repaint();
             }
         }
             @Override
-        public void keyPressed(KeyEvent e) {
-            System.out.println("Key pressed: " + e.getKeyChar());
-            
+        public void keyPressed(KeyEvent e) {     
         }
 
             @Override
-        public void keyReleased(KeyEvent e) {
-            System.out.println("Key released: " + e.getKeyChar());
+        public void keyReleased(KeyEvent e) {     
         }      
     }    
 }
