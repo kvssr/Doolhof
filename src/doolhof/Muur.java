@@ -23,7 +23,7 @@ public class Muur extends SpelElement
     }
     
     @Override
-    public void maakVakje(int x, int y, Graphics g)
+    public void tekenObject(int x, int y, Graphics g)
     {
         g.setColor(Color.black);
         g.fillRect(x, y, 25, 25);

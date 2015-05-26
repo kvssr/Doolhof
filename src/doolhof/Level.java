@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.logging.Logger;
 import javax.swing.JComponent;
 
 /**
@@ -22,7 +21,7 @@ public class Level extends JComponent
     private SpelElement[][] elementen = new SpelElement[12][12];
     
     /**
-     * paintComponent - tekend alle objecten uit de array.
+     * paintComponent - tekent alle objecten uit de array.
      * @param g 
      */
     @Override
@@ -33,15 +32,15 @@ public class Level extends JComponent
             for(int j = 0;j<12;j++)
             {
                 SpelElement se = elementen[i][j];
-                se.maakVakje(i * 25, j * 25, g);
+                se.tekenObject(i * 25, j * 25, g);
             }
         }    
      }
     
     /**
-     * init - vuld de array met alle objecten.
+     * laadLevel - vuld de array met alle objecten.
      */
-    public void init()
+    public void laadLevel()
     {
         try
         {
@@ -55,7 +54,6 @@ public class Level extends JComponent
                 for(int j = 0;j<12;j++){
                     
                     char c = lijst[j];
-                    System.out.println(c);
                     switch(c){
                         case 'm':
                             Muur m = new Muur(j,i);
@@ -72,9 +70,9 @@ public class Level extends JComponent
                     }
                 }
             }
-        } catch (FileNotFoundException ex)
+        } catch (FileNotFoundException e)
         {
-            
+            System.out.println(e);
         }
     }
           

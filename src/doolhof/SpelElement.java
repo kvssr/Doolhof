@@ -14,7 +14,7 @@ import java.awt.Graphics;
  */
 abstract public class SpelElement
 { 
-    public void maakVakje(int x, int y, Graphics g)
+    public void tekenObject(int x, int y, Graphics g)
     {
         g.setColor(Color.white);
         g.fillRect(x, y, 25, 25);

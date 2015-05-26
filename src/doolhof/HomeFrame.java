@@ -51,7 +51,7 @@ public class HomeFrame extends JFrame
         panel.setLayout(new BorderLayout(100,100));
         panel.add(button, BorderLayout.SOUTH);
         panel.add(Level, BorderLayout.NORTH);
-        Level.init();
+        Level.laadLevel();
         
         KeyListener klistener = new MyKeyListener();
         panel.addKeyListener(klistener);
@@ -68,7 +68,7 @@ public class HomeFrame extends JFrame
             System.out.println("Click!");
             button.setText("Reset");
             panel.requestFocusInWindow();
-            Level.init();
+            Level.laadLevel();
             Level.repaint();
         }
     } 
