@@ -9,12 +9,14 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Kevin
+ * 
  */
 public class Vakje extends SpelElement
-{
+{  
     private int x;
     private int y;
+    final private int WIDTH = 25;
+    final private int HEIGHT = 25;
     
     public Vakje(int x, int y)
     {
@@ -23,9 +25,9 @@ public class Vakje extends SpelElement
     }
     
     @Override
-    public void tekenObject(int x, int y, Graphics g)
+    public void tekenObject(Graphics g)
     {
         g.setColor(Color.white);
-        g.fillRect(x, y, 25, 25);
+        g.fillRect(x * WIDTH, y * HEIGHT, WIDTH, HEIGHT);
     }
 }

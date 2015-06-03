@@ -10,13 +10,18 @@ import java.awt.Graphics;
 
 /**
  *
- * @author Kevin
+ * 
  */
 abstract public class SpelElement
 { 
-    public void tekenObject(int x, int y, Graphics g)
+    private int x;
+    private int y;
+    final private int WIDTH = 25;
+    final private int HEIGHT = 25;
+    
+    public void tekenObject(Graphics g)
     {
-        g.setColor(Color.white);
-        g.fillRect(x, y, 25, 25);
+        g.setColor(Color.red);
+        g.fillRect(x, y, WIDTH, HEIGHT);
     }             
 }

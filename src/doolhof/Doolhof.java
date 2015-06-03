@@ -6,7 +6,7 @@ package doolhof;
 
 /**
  *
- * @author Kevin
+ * 
  */
 public class Doolhof
 {

@@ -14,13 +14,13 @@ import javax.swing.*;
 
 /**
  *
- * @author Kevin
+ * 
  */
 public class HomeFrame extends JFrame
 {
     private JButton button;
     private JPanel panel;
-    private static final int FRAME_WIDTH = 300;
+    private static final int FRAME_WIDTH = 320;
     private static final int FRAME_HEIGHT = 400;
     private Level Level;
     
@@ -51,7 +51,7 @@ public class HomeFrame extends JFrame
         panel.setLayout(new BorderLayout(100,100));
         panel.add(button, BorderLayout.SOUTH);
         panel.add(Level, BorderLayout.NORTH);
-        Level.laadLevel();
+        Level.laadLevel(1);
         
         KeyListener klistener = new MyKeyListener();
         panel.addKeyListener(klistener);
@@ -68,7 +68,9 @@ public class HomeFrame extends JFrame
             System.out.println("Click!");
             button.setText("Reset");
             panel.requestFocusInWindow();
-            Level.laadLevel();
+            int currentLevel = Level.getCurrentLevel();
+            Level.laadLevel(currentLevel);
+            Level.resetStappen();
             Level.repaint();
         }
     } 
@@ -92,6 +94,14 @@ public class HomeFrame extends JFrame
             }
             else if(e.getKeyChar() == 'd') {
                 Level.bewegen(2);
+                Level.repaint();
+            }
+            else if(e.getKeyChar() == 'e') {
+                Level.bewegen(5);
+                Level.repaint();
+            }
+            else if(e.getKeyChar() == 'f') {
+                Level.bewegen(6);
                 Level.repaint();
             }
         }
